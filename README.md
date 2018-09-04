@@ -1,2 +1,2 @@
 # TuringMachine
-Turing MAchine in Python
+Turing Machine in Python
