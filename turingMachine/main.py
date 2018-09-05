@@ -6,7 +6,7 @@ from config.State import StateConfig
 configFile = open('ww.txt', 'r').read().splitlines()
 tapeData = list('AabbaAX')
 
-tape = Tape(tapeData)
+tape = Tape(tapeData, 0)
 turing = TuringMachine(
     configFile[MachineConfig.entranceAlphabet],
     configFile[MachineConfig.tapeAlphabet],
