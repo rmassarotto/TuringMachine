@@ -18,6 +18,4 @@ class TuringMachine:
         print('Estado Final: ',self.endStates)
         print('Numero de Fitas: ',self.tapeNumber)
         #print('Transições: ',*self.transitions, sep = '\n')
-        print('Transições: ',self.transitions)
-
-    
+        print('Transições: ',self.transitions, '\n')
