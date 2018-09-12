@@ -10,7 +10,6 @@ class Tape:
         print('Posição Head: ',self.head)
         print('Conteudo Head: ',self.headData, '\n')
 
-
     def headMove(self, string):
         if not(string == 'L' and self.head == 0):
             if(string == 'R'):
