@@ -4,10 +4,10 @@ from model.State import State
 from config.TuringMachine import MachineConfig
 from config.State import StateConfig
 
-configFile = open('wwSimpler.txt', 'r').read().splitlines()
-tapeData = list('bbBBX')
+configFile = open('abc.txt', 'r').read().splitlines()
+tapeData = list('BaabbccB')
 
-tape = Tape(tapeData, 0, tapeData[0])
+tape = Tape(tapeData, 1, tapeData[1])
 turing = TuringMachine(
     configFile[MachineConfig.entranceAlphabet],
     configFile[MachineConfig.tapeAlphabet],
@@ -44,22 +44,33 @@ listOfStatesToExecute.append(turing.startState)
 while listOfStatesToExecute:
     #print(listOfStatesToExecute)
     for listExecute in listOfStatesToExecute:
+        print('Lista de Execução: ',listOfStatesToExecute)
+        print('Estado de execução:', listExecute, '\n')
+        tape.tapeInfo()
+
         for statesList in listOfStates:
+            #print(statesList.state)
             if listExecute == statesList.state and tape.headData == statesList.read:
-                print('Estado de execução:', listExecute)
-                print('Conteudo Fita: ',tape.headData)
                 statesList.stateInfo()
+                #print('Conteudo HeadFita: ',tape.headData)
                 tape.data[tape.head] = statesList.write
                 tape.headMove(statesList.move)
                 listOfStatesToExecute.append(statesList.toState)
-                tape.tapeInfo()
+                #tape.tapeInfo()
+                if statesList.state == turing.endStates:
+                    print('OK!')
+                    #break
+
+
             #else:
             #    print('Estado de execução:', listExecute)
             #    print('Conteudo Fita: ',tape.headData)
             #    statesList.stateInfo()
             #    print('pass')
 
-
+        print('Remove: ',listExecute,'\n\n')
         listOfStatesToExecute.remove(listExecute)
+        break
 
         #print(listOfStatesToExecute)
+print('OK!')

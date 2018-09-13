@@ -11,4 +11,4 @@ class State:
         print('Para estado: ',self.toState)
         print('Lendo: ',self.read)
         print('Escreve: ',self.write)
-        print('Move: ',self.move,'\n')
+        print('Move: ',self.move)
